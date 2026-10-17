@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "An object-oriented SVG editor command-line application",
   "type": "module",
+  "files": [
+    "dist",
+    "doc/README.md"
+  ],
   "bin": {
     "svg-editor": "dist/cli/SvgCli.js"
   },

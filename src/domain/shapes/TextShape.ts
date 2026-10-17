@@ -48,6 +48,10 @@ export class TextShape extends Shape {
     return `x=${this.x} y=${this.y}\n  text="${this.content}"`;
   }
 
+  public override positionSummary(): string {
+    return `(${this.x},${this.y})`;
+  }
+
   protected override geometryAttributes(): Readonly<Record<string, string>> {
     return { x: String(this.x), y: String(this.y) };
   }

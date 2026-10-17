@@ -19,6 +19,9 @@ export abstract class Shape {
     private readonly shapeId: string,
     options: ShapeOptions = {},
   ) {
+    if (shapeId === "") {
+      throw new EditorError("shape id must not be empty");
+    }
     for (const [name, value] of Object.entries(options.styles ?? {})) {
       this.styles.set(name, value);
     }
@@ -50,6 +53,10 @@ export abstract class Shape {
   public abstract summary(): string;
 
   public abstract geometryDetails(): string;
+
+  public positionSummary(): string | undefined {
+    return undefined;
+  }
 
   public setAttribute(name: string, value: string): string | undefined {
     if (Shape.STYLE_ATTRIBUTES.has(name)) {

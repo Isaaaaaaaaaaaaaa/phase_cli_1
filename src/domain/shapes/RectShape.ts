@@ -48,6 +48,10 @@ export class RectShape extends Shape {
     return `x=${this.x} y=${this.y} width=${this.width} height=${this.height}`;
   }
 
+  public override positionSummary(): string {
+    return `(${this.x},${this.y})`;
+  }
+
   protected override geometryAttributes(): Readonly<Record<string, string>> {
     return {
       x: String(this.x),
@@ -66,19 +70,18 @@ export class RectShape extends Shape {
     value: string,
   ): { readonly matched: boolean; readonly previous?: string } {
     const previous = this.getSpecificAttribute(name);
-    const numeric = this.number(value, name);
     switch (name) {
       case "x":
-        this.x = numeric;
+        this.x = this.number(value, name);
         break;
       case "y":
-        this.y = numeric;
+        this.y = this.number(value, name);
         break;
       case "width":
-        this.width = numeric;
+        this.width = this.number(value, name);
         break;
       case "height":
-        this.height = numeric;
+        this.height = this.number(value, name);
         break;
       default:
         return { matched: false };

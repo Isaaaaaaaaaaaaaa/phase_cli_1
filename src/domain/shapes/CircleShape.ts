@@ -45,6 +45,10 @@ export class CircleShape extends Shape {
     return `cx=${this.cx} cy=${this.cy} r=${this.radius}`;
   }
 
+  public override positionSummary(): string {
+    return `(${this.cx},${this.cy})`;
+  }
+
   protected override geometryAttributes(): Readonly<Record<string, string>> {
     return { cx: String(this.cx), cy: String(this.cy), r: String(this.radius) };
   }

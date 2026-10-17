@@ -48,6 +48,10 @@ export class EllipseShape extends Shape {
     return `cx=${this.cx} cy=${this.cy} rx=${this.rx} ry=${this.ry}`;
   }
 
+  public override positionSummary(): string {
+    return `(${this.cx},${this.cy})`;
+  }
+
   protected override geometryAttributes(): Readonly<Record<string, string>> {
     return {
       cx: String(this.cx),

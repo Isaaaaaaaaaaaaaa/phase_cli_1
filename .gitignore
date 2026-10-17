@@ -1,0 +1,6 @@
+node_modules/
+dist/
+coverage/
+*.svg
+!fixtures/*.svg
+.DS_Store
